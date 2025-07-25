@@ -1,0 +1,213 @@
+<h1>my protfolio</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Teymour | Portfolio</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #e4e4e4;
+      color: #000000;
+    }
+
+    header {
+      background-color: #1e272e;
+      color: #cfd6e4; /* لون عنوان الفقرة */
+      padding: 60px 20px 40px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 40px;
+      color: rgb(118, 6, 73);
+    }
+
+    header p {
+      margin-top: 10px;
+      font-size: 18px;
+      color: #cfd6e4;
+    }
+
+    .section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 28px;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+    }
+
+    /* Responsive for small screens */
+    @media (max-width: 600px) {
+      .projects {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .project {
+      background: #e5d9d9;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      padding: 20px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .project img {
+      max-width: 100%;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+
+    .project img:hover {
+      transform: scale(1.05);
+    }
+
+    .project h3 {
+      margin-top: 15px;
+      font-size: 20px;
+    }
+
+    .skills-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .skill {
+      background-color: #d9d9d9; /* لون رمادي فاتح */
+      border: 1px solid #bbb; /* حدود رمادية أغمق */
+      border-radius: 8px;
+      padding: 10px 20px;
+      font-weight: bold;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .cta {
+      display: block;
+      width: fit-content;
+      margin: 40px auto 0;
+      background: #0e81d9;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .cta:hover {
+      background: #0f69c4;
+      box-shadow: 0 4px 10px rgba(15, 105, 196, 0.5);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 20px;
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    form label {
+      font-weight: bold;
+      display: flex;
+      flex-direction: column;
+      font-size: 16px;
+    }
+
+    form input, form textarea {
+      margin-top: 6px;
+      font-size: 14px;
+      font-family: inherit;
+    }
+
+    form button:hover {
+      background-color: #0f69c4;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Teymour</h1>
+    <p>Creative Designer × Code & Medicine Fusion</p>
+  </header>
+
+  <div class="section">
+    <div class="section-title">My Work</div>
+    <div class="projects">
+      <div class="project">
+        <!-- استبدلت الصورة بالمسار النسبي -->
+        <img src="images/doctor-medical-poster.jpg" alt="Medical Java Poster" />
+        <h3>Medical Java Poster</h3>
+      </div>
+      <div class="project">
+        <img src="https://cdn.dribbble.com/userupload/12311059/file/original-1a42c50e8a5a78a4f70b67ff95b3515f.png?resize=752x" alt="Minimal Web Ad" />
+        <h3>Minimal Web Ad</h3>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">Skills</div>
+    <div class="skills-list">
+      <div class="skill">HTML5</div>
+      <div class="skill">CSS3</div>
+      <div class="skill">Responsive Design (Basic)</div>
+      <div class="skill">Canva</div>
+      <div class="skill">Figma (Learning)</div>
+      <div class="skill">Creative Thinking</div>
+      <div class="skill">Poster Design</div>
+      <div class="skill">Medical Design Concepts</div>
+      <div class="skill">Java (Fundamentals)</div>
+      <div class="skill">Social Media Content</div>
+    </div>
+  </div>
+
+  <a href="mailto:teymourdesign@gmail.com" class="cta">Hire Me</a>
+
+  <div class="section">
+    <div class="section-title">Contact Me</div>
+    <form action="https://formspree.io/f/mjkoyrdw" method="POST" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
+      <label>
+        Name:
+        <input type="text" name="name" required placeholder="Your full name" aria-label="Name" />
+      </label>
+      <label>
+        Email:
+        <input type="email" name="_replyto" required placeholder="Your email address" aria-label="Email" />
+      </label>
+      <label>
+        Message:
+        <textarea name="message" required rows="5" placeholder="Write your message here..." aria-label="Message"></textarea>
+      </label>
+      <button type="submit" style="background-color: #0e81d9; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+        Send Message
+      </button>
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Teymour. All rights reserved.
+  </footer>
+
+</body>
+</html>
