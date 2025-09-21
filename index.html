@@ -1,85 +1,131 @@
-<h1>my protfolio</h1>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Teymour | Portfolio</title>
   <style>
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       margin: 0;
       font-family: 'Segoe UI', sans-serif;
-      background-color: #e4e4e4;
-      color: #000000;
+      background: linear-gradient(135deg, #ece9e6, #ffffff);
+      color: #222;
+      transition: background 0.5s, color 0.5s;
+    }
+
+    body.dark {
+      background: linear-gradient(135deg, #1f1f1f, #2c2c2c);
+      color: #f0f0f0;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      backdrop-filter: blur(12px);
+      background-color: rgba(30, 39, 46, 0.7);
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      padding: 15px 0;
+      z-index: 1000;
+    }
+
+    nav a {
+      color: #cfd6e4;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #0e81d9;
+    }
+
+    body.dark nav a {
+      color: #ddd;
     }
 
     header {
-      background-color: #1e272e;
-      color: #cfd6e4; /* لون عنوان الفقرة */
-      padding: 60px 20px 40px;
+      background: linear-gradient(135deg, #1e272e, #2d3436);
+      color: #cfd6e4;
+      padding: 120px 20px 80px;
       text-align: center;
     }
 
     header h1 {
       margin: 0;
-      font-size: 40px;
-      color: rgb(118, 6, 73);
+      font-size: 48px;
+      background: linear-gradient(90deg, #ff4e50, #f9d423);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
     header p {
-      margin-top: 10px;
-      font-size: 18px;
-      color: #cfd6e4;
+      margin-top: 15px;
+      font-size: 20px;
+      opacity: 0.9;
     }
 
     .section {
-      max-width: 900px;
-      margin: 50px auto;
+      max-width: 1000px;
+      margin: 60px auto;
       padding: 0 20px;
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+    }
+
+    .section.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
 
     .section-title {
       text-align: center;
-      font-size: 28px;
-      margin-bottom: 30px;
-      color: #333;
+      font-size: 30px;
+      margin-bottom: 40px;
+      font-weight: bold;
     }
 
     .projects {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 20px;
+      gap: 25px;
     }
 
-    /* Responsive for small screens */
-    @media (max-width: 600px) {
+    @media (max-width: 700px) {
       .projects {
         grid-template-columns: 1fr;
       }
     }
 
     .project {
-      background: #e5d9d9;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+      background: rgba(255, 255, 255, 0.15);
+      border-radius: 16px;
       padding: 20px;
       text-align: center;
-      transition: transform 0.3s ease;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+    }
+
+    .project:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 24px rgba(0,0,0,0.15);
     }
 
     .project img {
       max-width: 100%;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .project img:hover {
-      transform: scale(1.05);
+      border-radius: 12px;
     }
 
     .project h3 {
       margin-top: 15px;
-      font-size: 20px;
+      font-size: 22px;
     }
 
     .skills-list {
@@ -90,32 +136,38 @@
     }
 
     .skill {
-      background-color: #d9d9d9; /* لون رمادي فاتح */
-      border: 1px solid #bbb; /* حدود رمادية أغمق */
-      border-radius: 8px;
-      padding: 10px 20px;
+      background: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.3);
+      border-radius: 12px;
+      padding: 12px 22px;
       font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s, transform 0.3s;
+    }
+
+    .skill:hover {
+      background: #0e81d9;
+      color: #fff;
+      transform: scale(1.05);
     }
 
     .cta {
       display: block;
       width: fit-content;
-      margin: 40px auto 0;
-      background: #0e81d9;
+      margin: 50px auto 0;
+      background: linear-gradient(90deg, #0e81d9, #0f69c4);
       color: white;
-      padding: 12px 30px;
-      border-radius: 6px;
+      padding: 14px 36px;
+      border-radius: 30px;
       text-decoration: none;
       font-weight: bold;
       text-align: center;
       cursor: pointer;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
+      transition: transform 0.3s, box-shadow 0.3s;
     }
 
     .cta:hover {
-      background: #0f69c4;
-      box-shadow: 0 4px 10px rgba(15, 105, 196, 0.5);
+      transform: scale(1.07);
+      box-shadow: 0 6px 16px rgba(14,129,217,0.5);
     }
 
     footer {
@@ -123,50 +175,62 @@
       margin-top: 60px;
       padding: 20px;
       font-size: 14px;
-      color: #aaa;
+      opacity: 0.7;
     }
 
-    form label {
-      font-weight: bold;
-      display: flex;
-      flex-direction: column;
-      font-size: 16px;
+    body.dark footer {
+      color: #bbb;
     }
 
-    form input, form textarea {
-      margin-top: 6px;
-      font-size: 14px;
-      font-family: inherit;
+    .toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0e81d9;
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      transition: background 0.3s;
     }
 
-    form button:hover {
-      background-color: #0f69c4;
+    .toggle-btn:hover {
+      background: #0f69c4;
     }
   </style>
 </head>
 <body>
+
+  <nav>
+    <a href="#work">Work</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
 
   <header>
     <h1>Teymour</h1>
     <p>Creative Designer × Code & Medicine Fusion</p>
   </header>
 
-  <div class="section">
+  <div class="section" id="work">
     <div class="section-title">My Work</div>
     <div class="projects">
       <div class="project">
-        <!-- استبدلت الصورة بالمسار النسبي -->
-        <img src="images/doctor-medical-poster.jpg" alt="Medical Java Poster" />
+        <img src="C:\Users\msi\Desktop\Audiobooks\ChatGPT Image 21 sept. 2025, 14_41_37.png" alt="Medical Java Poster" />
         <h3>Medical Java Poster</h3>
       </div>
       <div class="project">
-        <img src="https://cdn.dribbble.com/userupload/12311059/file/original-1a42c50e8a5a78a4f70b67ff95b3515f.png?resize=752x" alt="Minimal Web Ad" />
+        <img src="C:\Users\msi\Desktop\Audiobooks\canva.png" alt="Minimal Web Ad" />
         <h3>Minimal Web Ad</h3>
       </div>
     </div>
   </div>
 
-  <div class="section">
+  <div class="section" id="skills">
     <div class="section-title">Skills</div>
     <div class="skills-list">
       <div class="skill">HTML5</div>
@@ -184,7 +248,7 @@
 
   <a href="mailto:teymourdesign@gmail.com" class="cta">Hire Me</a>
 
-  <div class="section">
+  <div class="section" id="contact">
     <div class="section-title">Contact Me</div>
     <form action="https://formspree.io/f/mjkoyrdw" method="POST" style="max-width: 600px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px;">
       <label>
@@ -199,7 +263,7 @@
         Message:
         <textarea name="message" required rows="5" placeholder="Write your message here..." aria-label="Message"></textarea>
       </label>
-      <button type="submit" style="background-color: #0e81d9; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+      <button type="submit" style="background: #0e81d9; color: white; padding: 12px; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
         Send Message
       </button>
     </form>
@@ -208,6 +272,24 @@
   <footer>
     © 2025 Teymour. All rights reserved.
   </footer>
+
+  <button class="toggle-btn" onclick="document.body.classList.toggle('dark')">🌓</button>
+
+  <script>
+    // Intersection Observer for animations
+    const sections = document.querySelectorAll('.section');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    sections.forEach(section => {
+      observer.observe(section);
+    });
+  </script>
 
 </body>
 </html>
